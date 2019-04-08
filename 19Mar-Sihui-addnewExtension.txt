@@ -1,0 +1,11 @@
+if [[ -z $1 ]]
+then
+        echo "No valid directory, please supply a directory name as the first parameter!"
+        exit 4
+fi
+dir=$1
+for file in $(ls ${dir})
+do
+        #mv $file $file.new
+        echo $file
+done

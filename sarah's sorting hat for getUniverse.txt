@@ -1,0 +1,13 @@
+#Code for sorting log files into folders
+#Shoutout to Chin How for fixing some of the code
+
+
+targetDir="/home/$USER/practicefolder/logfilesGU" <--rename this to the directory containing your log files
+for logfile in ${targetDir}/getUniverse*
+do
+        year=$(echo ${logfile} | awk -F'.' '{print $2}')
+        month=$(echo ${logfile}|awk -F'.' '{print $3}')
+        mkdir -p ${targetDir}/${year}.${month}
+        mv ${logfile} ${targetDir}/${year}.${month}
+
+done

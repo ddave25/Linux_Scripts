@@ -1,0 +1,18 @@
+---
+     - name: "Dump Ansible Facts and Docker Installation"
+       hosts: all
+       tasks:
+        - name: "Dump ansbile facts pretty print style"
+          debug: msg="{{ansible_facts}}"
+          with_dict: {ansible_facts}
+        - name: "Starting installation"
+          shell: date >> sin04Date.txt
+        - name: "Running yum update"
+          shell: sudo yum update -y
+        - name: "Running yum install -y docker"
+          shell: sudo yum install -y docker
+        - name: "Running sudo service docker start"
+          shell: sudo service docker start
+        - name: "Running sudo usermod -a -G docker ec2-user"
+          shell: sudo usermod -a -G docker ec2-user
+...
