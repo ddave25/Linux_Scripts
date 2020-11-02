@@ -1,4 +1,4 @@
-#i/usr/bin/bash
+#!/usr/bin/bash
 
 read decision
 
